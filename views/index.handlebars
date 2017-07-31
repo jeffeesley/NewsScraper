@@ -1,44 +1,33 @@
-<div class="container">
+<div class = "container">
 	<div class = "row">
-		<div class = "col-xs-12">
-			{{!-- Jumobtron --}}
-			<div class="jumbotron text-center">
-			  <h1 class="display-3">Read Some Tech News!</h1>
-			  <h2 class="lead">Click the Scrape Button to Get the Latest Tech Articles on Recode.Net</h2>
-			  <hr class="my-4">
-			  <p class="lead">
+		<div class = "jumbotron">
+			<h2>Get yer news here, free news</h2>
+			<h3>Click Scrape</h3>
 
-			    <a href="/scrape">
-			    	<button id="scrapeArticles" type="button" class="btn btn-primary btn-lg">Scrape!</button>
-					</a>
+			<a href="/scrape">
+				<button id = "scrapeArticles" type = "button" class = "btn btn-primary">Scrape</button>
+			</a>
 
-			    <a href="/saved">
-			    	<button class="btn btn-primary btn-lg">View Saved Articles</button>
-			    </a>
-
-			  </p>
-			</div>
+			<a href = "/saved">
+				<button class = "btn btn-primary">Saved Articles</button>
+			</a>
 		</div>
 	</div>
 
-	<!-- Article Listings -->
 	{{#each articleList}}
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	    <a href="{{this.link}}" target="_blank"><h3 class="panel-title">{{this.title}}</h3></a>
+	<div class = "panel panel-default">
+		<div class = "panel-heading">
+			<a href = "{{this.link}}" target = "_blank"><h3 class = "panel-title">{{this.title}}</h3></a>
 
-	    	{{#if this.saved}}
-	    		<button data-id={{this.id}} class="btn btn-primary seeNotes" type="submit">Notes</button>
-	    		<button data-id={{this.id}} class="btn btn-primary deleteArticle" type="submit">Delete Article</button>
-	    	{{else}}
-	    		<button class="btn btn-primary saveArticle" type="submit">Save Article</button>
-	    	{{/if}}
-
-	  </div>
-	  <div class="panel-body">
-	    {{this.description}}
-	  </div>
-	</div>
-	{{/each}}
-
+			{{#if this.saved}}
+				<button data-id = {{this.id}} class = "btn btn-primary seeNotes" type = "submit">Notes</button>
+				<button data-id = {{this.id}} class = "btn btn-primary deleteArticle" type = "submit">Delete Article</button>
+			{{else}}
+				<button class = "btn btn-primary saveArticle" type = "submit">Save Article</button>
+			{{/if}}
+		</div>
+		<div class = "panel-body">
+			{{this.description}}
+		</div>
+		{{/each}}
 </div>
